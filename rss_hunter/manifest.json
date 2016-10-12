@@ -1,0 +1,30 @@
+{
+	"manifest_version": 2,
+	"name": "Rss Hunter",
+	"version": "1.0",
+	"description": "Find the rss feed source of the current website you're visiting",
+	"icons": {
+		"16": "images/icon16.png",
+		"48": "images/icon48.png",
+		"128": "images/icon128.png"
+	},
+	"permissions": [ "tabs", "webRequest", "http://*/*", "https://*/*" ],
+	"background": {
+	   "page": "background.html"
+	},
+	"browser_action": {
+		"default_icon": {
+			"19": "images/icon19.png",
+			"38": "images/icon38.png"
+		},
+		"default_title": "Rss Hunter",
+		"default_popup": "popup.html"
+	},
+	"content_scripts": [
+		{
+			"matches": ["http://*/*", "https://*/*"],
+			"js": ["js/content.js"],
+			"run_at": "document_idle"
+		}
+	]
+}
